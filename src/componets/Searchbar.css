@@ -1,0 +1,33 @@
+
+.search-container{
+    display:flex;
+    justify-content: center;
+    margin: 40px auto;
+    width: 50vw;
+
+    
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+#add-btn{
+    font-size: xx-large;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+
+}
+#add-btn:hover{
+    background-color: #45a049;
+    transition: .2s all ease-in-out;
+}

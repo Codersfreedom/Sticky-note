@@ -1,0 +1,7 @@
+.notes-container {
+  height: calc(100vh - 190px);
+  width: 95vw;
+  padding: 15px;
+  display: flex;
+
+}
