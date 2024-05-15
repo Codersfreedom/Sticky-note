@@ -1,29 +1,33 @@
 
 .search-container{
+    position: relative;
     display:flex;
     justify-content: center;
     margin: 40px auto;
     width: 50vw;
+    height: fit-content;
 
     
 }
 
 input{
     width: 100%;
-    padding: 10px;
+    height: 100%;
+    padding: 16px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     outline: none;
 }
 #add-btn{
+    position:absolute;
+    right: 0px;
     font-size: xx-large;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 10px;
-    margin-left: 10px;
     cursor: pointer;
 
 }

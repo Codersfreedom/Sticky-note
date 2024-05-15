@@ -4,7 +4,7 @@ import { CiCircleRemove } from "react-icons/ci";
 const Note = ({note,id,position,...props}) => {
   
   const handleDeleteNote = (id) => () => {
-    console.log(id)
+    
     const notes = JSON.parse(localStorage.getItem("notes"));
     const updatedNotes = notes.filter((note) => note.id !== id);
     localStorage.setItem("notes", JSON.stringify(updatedNotes));

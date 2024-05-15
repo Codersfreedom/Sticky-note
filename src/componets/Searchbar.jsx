@@ -11,6 +11,7 @@ const Searchbar = ({parentCallback}) => {
 
     const inputRef = useRef();
 
+    
     const handleSubmitNote = () => {
 
         const note = inputRef.current.value;
@@ -28,11 +29,18 @@ const Searchbar = ({parentCallback}) => {
 
     }
 
+    const handlekeyPress =(e)=>{
+        if(e.keyCode === 13){
+            handleSubmitNote();
+        }
+    }
+
     return (
 
         <div className="search-container">
 
             <input type="text" placeholder="Add note..."
+                onKeyDown={(e)=>handlekeyPress(e)}
                 ref={inputRef}
             />
 
