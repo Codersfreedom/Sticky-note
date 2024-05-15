@@ -3,14 +3,14 @@ import Note from "./Note"
 import './Notes.css';
 
 const Notes = ({ notes = [], setNotes = () => { } }) => {
-  console.log(notes)
+
 
 
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
 
     const updatedNotes = notes?.map((note) => {
-      const savedNote = savedNotes?.find((sn) => sn.id == note.id);
+      const savedNote = savedNotes?.find((sn) => sn.id === note.id);
 
       if (savedNote) {
 

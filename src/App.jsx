@@ -9,12 +9,6 @@ function App() {
     JSON.parse(localStorage.getItem("notes")) || []
   );
 
-
-
-  console.log(notes)
- 
-
-
   const getNotes = (note) => {
     if (!note) {
       return;

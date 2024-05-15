@@ -1,6 +1,7 @@
 import { IoMdAddCircleOutline } from "react-icons/io";
 import './Searchbar.css';
 import { useRef, useState } from "react";
+import { nanoid } from 'nanoid'
 const Searchbar = ({parentCallback}) => {
 
     
@@ -17,7 +18,7 @@ const Searchbar = ({parentCallback}) => {
             return alert("Type something to add note");
         }
         const createdNote = {
-            id: Math.floor(Math.random() * 100 + 1),
+            id: nanoid(5),
             note: note,
             isCompleted: false,
         }
