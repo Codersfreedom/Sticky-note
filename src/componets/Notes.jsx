@@ -39,7 +39,7 @@ const Notes = ({ notes = [], setNotes = () => { } }) => {
     <div className="notes-container">
       {notes &&
         notes?.map((note) => {
-          return <Note key={note.id} position={note.position} note={note.note} />
+          return <Note key={note.id}  position={note.position} note={note.note} id={note.id} />
 
         })
       }

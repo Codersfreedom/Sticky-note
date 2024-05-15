@@ -1,8 +1,16 @@
 import './Note.css';
 import { MdPushPin } from "react-icons/md";
-
-const Note = ({note,position,...props}) => {
+import { CiCircleRemove } from "react-icons/ci";
+const Note = ({note,id,position,...props}) => {
   
+  const handleDeleteNote = (id) => () => {
+    console.log(id)
+    const notes = JSON.parse(localStorage.getItem("notes"));
+    const updatedNotes = notes.filter((note) => note.id !== id);
+    localStorage.setItem("notes", JSON.stringify(updatedNotes));
+    window.location.reload();
+  }
+
   return (
     <div className='note-container'
     style={{
@@ -12,6 +20,7 @@ const Note = ({note,position,...props}) => {
     {...props}
     >
       <MdPushPin id='pin'/>
+      <CiCircleRemove id='remove' onClick={handleDeleteNote(id)}/>
       <h5>{note}</h5>
     </div>
   )

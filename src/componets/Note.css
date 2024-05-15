@@ -24,3 +24,10 @@ h5{
     color: brown;
 
 }
+#remove{
+    position: absolute;
+    right: 2px;
+    font-size: 22px;
+    cursor: pointer;
+    
+}
