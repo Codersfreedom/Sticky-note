@@ -1,7 +1,8 @@
 import './Note.css';
 import { MdPushPin } from "react-icons/md";
 import { CiCircleRemove } from "react-icons/ci";
-const Note = ({note,id,position,...props}) => {
+import { forwardRef } from 'react';
+const Note = forwardRef(({note,id,position,...props},ref) => {
   
   const handleDeleteNote = (id) => () => {
     
@@ -13,6 +14,7 @@ const Note = ({note,id,position,...props}) => {
 
   return (
     <div className='note-container'
+    ref={ref}
     style={{
       left:`${position?.x}px`,
       top:`${position?.y}px`,
@@ -24,6 +26,6 @@ const Note = ({note,id,position,...props}) => {
       <h5>{note}</h5>
     </div>
   )
-}
+})
 
 export default Note
