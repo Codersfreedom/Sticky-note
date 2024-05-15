@@ -1,7 +1,9 @@
 import { IoMdAddCircleOutline } from "react-icons/io";
 import './Searchbar.css';
 import { useRef, useState } from "react";
-const Searchbar = () => {
+const Searchbar = ({parentCallback}) => {
+
+    
 
 
     const [notes, setNotes] = useState();
@@ -15,11 +17,12 @@ const Searchbar = () => {
             return alert("Type something to add note");
         }
         const createdNote = {
-            id: Math.random() * 100 + 1,
+            id: Math.floor(Math.random() * 100 + 1),
             note: note,
             isCompleted: false,
         }
         setNotes(createdNote);
+        parentCallback(createdNote);
         inputRef.current.value = '';
 
     }

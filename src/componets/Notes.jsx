@@ -2,23 +2,28 @@ import { useEffect } from "react";
 import Note from "./Note"
 import './Notes.css';
 
-const Notes = ({ notes=[], setNotes = () => {} }) => {
+const Notes = ({ notes = [], setNotes = () => { } }) => {
+  console.log(notes)
 
 
   useEffect(() => {
-    const savedNotes = null;
+    const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
 
-    const updatedNotes = notes.map((note) => {
+    const updatedNotes = notes?.map((note) => {
+      const savedNote = savedNotes?.find((sn) => sn.id == note.id);
 
-      if (savedNotes) {
-        return;
+      if (savedNote) {
+
+        return { ...note, position: savedNote?.position };
       } else {
         const position = determinePosition();
+
         return { ...note, position };
       }
     })
     setNotes(updatedNotes);
-  }, [notes.length])
+    localStorage.setItem("notes", JSON.stringify(updatedNotes));
+  }, [notes?.length])
 
   const determinePosition = () => {
     const maxX = window.innerWidth - 250;
@@ -32,9 +37,9 @@ const Notes = ({ notes=[], setNotes = () => {} }) => {
   }
   return (
     <div className="notes-container">
-      {
-        notes.map((note) => {
-          return <Note key={note.id} position={note.position} note={note.text} />
+      {notes &&
+        notes?.map((note) => {
+          return <Note key={note.id} position={note.position} note={note.note} />
 
         })
       }

@@ -1,25 +1,40 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Notes from "./componets/Notes"
 import Searchbar from "./componets/Searchbar"
 
 
 function App() {
 
-  const [notes,setNotes] = useState([
-    {
-      id:1,
-      text:"Sample note 1",
-    },
-    {
-      id:2,
-      text:"Sample note 2"
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+  );
+
+
+
+  console.log(notes)
+ 
+
+
+  const getNotes = (note) => {
+    if (!note) {
+      return;
     }
-  ])
+    else {
+
+      if (notes.length > 0) {
+
+        setNotes([...notes, note]);
+      } else {
+        setNotes([note]);
+      }
+    }
+
+  }
 
   return (
     <>
-      <Searchbar/>
-      <Notes notes={notes} setNotes={setNotes}/>
+      <Searchbar parentCallback={getNotes} />
+      <Notes notes={notes} setNotes={setNotes} />
     </>
   )
 }
