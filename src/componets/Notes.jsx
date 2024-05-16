@@ -1,6 +1,6 @@
 import { createRef, useEffect, useRef } from "react";
 import Note from "./Note"
-import './Notes.css';
+
 
 const Notes = ({ notes = [], setNotes = () => { } }) => {
 
@@ -40,7 +40,7 @@ const Notes = ({ notes = [], setNotes = () => { } }) => {
   const handleDragStart = (e, note) => {
     const { id } = note;
     const startPos = note.position;
-    console.log(startPos)
+    
     const currNote = noteRef.current[id].current;
     const notePosition = currNote.getBoundingClientRect();
     const offsetX = e.clientX - notePosition.left;
@@ -102,7 +102,7 @@ const Notes = ({ notes = [], setNotes = () => { } }) => {
 
   }
   return (
-    <>
+    <div className="notes-container">
       {notes &&
         notes?.map((note) => {
           return <Note key={note.id}
@@ -116,7 +116,7 @@ const Notes = ({ notes = [], setNotes = () => { } }) => {
 
         })
       }
-    </>
+    </div>
   )
 }
 
